@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: sqlite:///./data/invoice_keeper.db
+    volumes:
+      - invoice_data:/app/data
+
+volumes:
+  invoice_data:
